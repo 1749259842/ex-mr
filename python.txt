@@ -1,0 +1,12 @@
+import urllib.request
+import urllib.parse
+url = 'http://httpbin.org/post'
+header = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; 
+              x64) AppleWebKit/537.36 (KHTML, like Gecko) 
+              Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134"}
+dict_demo = {"name":"itcast"}
+data = bytes(urllib.parse.urlencode(dict_demo).encode("utf-8"))
+request = urllib.request.Request(url,data=data,headers=header)
+response = urllib.request.urlopen(request)
+html = response.read().decode()
+print(html)
